@@ -1,14 +1,16 @@
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * Created by joshua2 on 9/16/15.
  */
-public abstract class Tweet extends Object implements Tweetable {
+public abstract class Tweet extends Object implements Tweetable,MyObservable,MyObserver {
     private String text;
     protected Date date;
+    public ArrayList<MyObserver> observers;
 
     public Tweet(String tweet, Date date) throws TweetTooLongException {
         this.setText(tweet);
@@ -32,12 +34,17 @@ public abstract class Tweet extends Object implements Tweetable {
         }
     }
 
+    public void addObserver(MyObserver observer){
+        observers.add(observer);
+    }
+
     public Date getDate() {
         return date;
     }
 
     public void setDate(Date date) {
         this.date = date;
+        notifyAll();
     }
 
     public abstract Boolean isImportant();
