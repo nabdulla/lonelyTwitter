@@ -37,7 +37,7 @@ public class LonelyTwitterActivity extends Activity implements MyObserver{
 
 	/** Called when the activity is first created. */
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {//all
 
 		super.onCreate(savedInstanceState);//move to view
 		setContentView(R.layout.main);//move to view
@@ -59,7 +59,7 @@ public class LonelyTwitterActivity extends Activity implements MyObserver{
 	}
 
 	@Override
-	protected void onStart() {
+	protected void onStart() {//model
 		// TODO Auto-generated method stub
 		super.onStart();
 		loadFromFile();//move to model
