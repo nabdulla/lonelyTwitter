@@ -2,6 +2,7 @@ package ca.ualberta.cs.lonelytwitter;
 
 import android.app.Activity;
 import android.app.Instrumentation;
+import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
 import android.widget.Button;
@@ -83,6 +84,8 @@ public class LonelyTwitterActivityTest extends ActivityInstrumentationTestCase2 
         getInstrumentation().removeMonitor(receiverActivityMonitor);
 
         // test that the tweet editor starts up with the correct tweet
+        Tweet lastTweet = (Tweet) oldTweetsList.getItemAtPosition(0);
+        Intent intent = new Intent(activity,EditTweetActivity.class);
 
         // test that we can edit a tweet
 
